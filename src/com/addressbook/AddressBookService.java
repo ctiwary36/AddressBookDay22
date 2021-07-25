@@ -1,6 +1,7 @@
 package com.addressbook;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class AddressBookService
 {
@@ -221,6 +222,7 @@ public class AddressBookService
         }
     }
 
+
     public void searchPersonInACityOrState()
     {
         System.out.print("Enter City Name Or State Name To Search Contact : ");
@@ -236,6 +238,14 @@ public class AddressBookService
         int totalCount = 0;
         contactList.stream().filter(details -> details.getCity().equals(countContacts) || details.getState().equals(countContacts)).map(PersonDetails::getFirstName).forEach(System.out::println);totalCount++;
         System.out.println("\nTotal number of contacts present in " + countContacts + " is : " + totalCount);
+    }
+
+    public void sortContactByFirstName()
+    {
+        addressBook.keySet().forEach((String name) -> {
+            addressBook.get(name).stream().sorted(Comparator.comparing(PersonDetails::getFirstName))
+                    .collect(Collectors.toList()).forEach(person -> System.out.println(person.toString()));
+        });
     }
 
     public void displayContacts()

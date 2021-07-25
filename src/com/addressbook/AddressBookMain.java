@@ -48,9 +48,11 @@ public class AddressBookMain
                 case 5:
                     //search person by city or state.
                     addressBookService.searchPersonInACityOrState();
+                    break;
                 case 6:
                     //get number contact in a city or state.
                     addressBookService.getNumberOfContacts();
+                    break;
                 case 7:
                     //Exit from program.
                     isExit = true;

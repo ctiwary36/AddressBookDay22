@@ -234,15 +234,7 @@ public class AddressBookService
         System.out.print("Enter City Name Or State Name To Get The Count Of Contacts : ");
         String countContacts = scanner.next();
         int totalCount = 0;
-        for (int i = 0; i < contactList.size(); i++)
-        {
-            if (contactList.get(i).getCity().equals(countContacts) || contactList.get(i).getState().equals(countContacts))
-            {
-                PersonDetails personDetails = contactList.get(i);
-                System.out.println(personDetails);
-                totalCount ++;
-            }
-        }
+        contactList.stream().filter(details -> details.getCity().equals(countContacts) || details.getState().equals(countContacts)).map(PersonDetails::getFirstName).forEach(System.out::println);totalCount++;
         System.out.println("\nTotal number of contacts present in " + countContacts + " is : " + totalCount);
     }
 

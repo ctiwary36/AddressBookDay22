@@ -226,14 +226,7 @@ public class AddressBookService
         System.out.print("Enter City Name Or State Name To Search Contact : ");
         String searchCityState = scanner.next();
         System.out.println("\nFollowing are the persons who belongs to : " + searchCityState);
-        for (int i = 0; i < contactList.size(); i++)
-        {
-            if (contactList.get(i).getCity().equals(searchCityState) || contactList.get(i).getState().equals(searchCityState))
-            {
-                PersonDetails personDetails = contactList.get(i);
-                System.out.println(personDetails.getFirstName());
-            }
-        }
+        contactList.stream().filter(details -> details.getCity().equals(searchCityState) || details.getState().equals(searchCityState)).map(PersonDetails::getFirstName).forEach(System.out::println);
     }
 
     public void getNumberOfContacts()

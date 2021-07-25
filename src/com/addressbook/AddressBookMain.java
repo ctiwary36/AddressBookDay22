@@ -27,13 +27,16 @@ public class AddressBookMain
                     6.Get Number Of Contacts In City Or State:
                     7.Sort And Display Contact:
                     8.Sort By Zip-Code:
-                    9.Exit\n""");
+                    9.Read Data From File:
+                    10.Exit\n""");
             int userInput = scanner.nextInt();
             switch (userInput)
             {
                 case 1:
                     //add new contact.
                     addressBookService.addNewContact();
+                    //write data to file.
+                    addressBookService.writeToFile();
                     break;
                 case 2:
                     //display all contact.
@@ -64,6 +67,10 @@ public class AddressBookMain
                     addressBookService.sortByZipCode();
                     break;
                 case 9:
+                    //read data from file.
+                    addressBookService.readDataFromFile();
+                    break;
+                case 10:
                     //Exit from program.
                     isExit = true;
                     break;

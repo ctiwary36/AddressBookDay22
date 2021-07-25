@@ -85,7 +85,6 @@ public class AddressBookService
         }
     }
 
-
     public void editFullContact()
     {
         System.out.print("Enter mobile number to select the contact to be edited : ");
@@ -220,6 +219,21 @@ public class AddressBookService
                 System.out.println("Contact associated with the given mobile number does not exist." +
                         "Enter correct mobile number.");
                 deleteContact();
+            }
+        }
+    }
+
+    public void searchPersonInACityOrState()
+    {
+        System.out.print("Enter City Name Or State Name To Search Contact : ");
+        String searchCityState = scanner.next();
+        System.out.println("\nFollowing are the persons who belongs to : " + searchCityState);
+        for (int i = 0; i < contactList.size(); i++)
+        {
+            if (contactList.get(i).getCity().equals(searchCityState) || contactList.get(i).getState().equals(searchCityState))
+            {
+                PersonDetails personDetails = contactList.get(i);
+                System.out.println(personDetails.getFirstName());
             }
         }
     }

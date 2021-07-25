@@ -222,7 +222,6 @@ public class AddressBookService
         }
     }
 
-
     public void searchPersonInACityOrState()
     {
         System.out.print("Enter City Name Or State Name To Search Contact : ");
@@ -245,6 +244,16 @@ public class AddressBookService
         addressBook.keySet().forEach((String name) -> {
             addressBook.get(name).stream().sorted(Comparator.comparing(PersonDetails::getFirstName))
                     .collect(Collectors.toList()).forEach(person -> System.out.println(person.toString()));
+        });
+    }
+
+    public void sortByZipCode()
+    {
+        addressBook.keySet().forEach((String key) -> {
+            addressBook.get(key).stream()
+                    .sorted(Comparator.comparing(PersonDetails::getZipCode))
+                    .collect(Collectors.toList())
+                    .forEach(person -> System.out.println(person.toString()));
         });
     }
 

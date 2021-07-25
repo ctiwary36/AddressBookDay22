@@ -26,7 +26,8 @@ public class AddressBookMain
                     5.Search Person In city Or State:
                     6.Get Number Of Contacts In City Or State:
                     7.Sort And Display Contact:
-                    8.Exit\n""");
+                    8.Sort By Zip-Code:
+                    9.Exit\n""");
             int userInput = scanner.nextInt();
             switch (userInput)
             {
@@ -59,6 +60,10 @@ public class AddressBookMain
                     addressBookService.sortContactByFirstName();
                     break;
                 case 8:
+                    //sorting contact using zipcode.
+                    addressBookService.sortByZipCode();
+                    break;
+                case 9:
                     //Exit from program.
                     isExit = true;
                     break;
